@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<profile name="BigBox Dual" version="2016-05-21 23:40:55" app="S3D-Software 3.0.2">
+<profile name="BigBox Hybrid-Dual Mirrored" version="2016-05-21 23:41:18" app="S3D-Software 3.0.2">
   <baseProfile>Generic Dual Extrusion Profile</baseProfile>
   <printMaterial>PLA</printMaterial>
   <printQuality>Medium/Fast</printQuality>
-  <printExtruders>Extruder 0 (left) only</printExtruders>
-  <extruder name="Extruder 0 (left)">
+  <printExtruders>Extruder 0 (right) only</printExtruders>
+  <extruder name="Extruder 0 (right)">
     <toolheadNumber>0</toolheadNumber>
     <diameter>0.4</diameter>
     <autoWidth>1</autoWidth>
@@ -20,7 +20,7 @@
     <useWipe>0</useWipe>
     <wipeDistance>5</wipeDistance>
   </extruder>
-  <extruder name="Extruder 1 (right)">
+  <extruder name="Extruder 1 (left)">
     <toolheadNumber>1</toolheadNumber>
     <diameter>0.4</diameter>
     <autoWidth>1</autoWidth>
@@ -99,7 +99,7 @@
   <supportGridSpacing>1</supportGridSpacing>
   <maxOverhangAngle>50</maxOverhangAngle>
   <supportAngles>45,-45</supportAngles>
-  <temperatureController name="Extruder 0 (left)">
+  <temperatureController name="Extruder 0 (right)">
     <temperatureNumber>0</temperatureNumber>
     <isHeatedBed>0</isHeatedBed>
     <relayBetweenLayers>0</relayBetweenLayers>
@@ -107,7 +107,7 @@
     <stabilizeAtStartup>1</stabilizeAtStartup>
     <setpoint layer="1" temperature="210"/>
   </temperatureController>
-  <temperatureController name="Extruder 1 (right)">
+  <temperatureController name="Extruder 1 (left)">
     <temperatureNumber>1</temperatureNumber>
     <isHeatedBed>0</isHeatedBed>
     <relayBetweenLayers>0</relayBetweenLayers>
@@ -155,7 +155,7 @@
   <gcodeZoffset>0</gcodeZoffset>
   <overrideMachineDefinition>1</overrideMachineDefinition>
   <machineTypeOverride>0</machineTypeOverride>
-  <strokeXoverride>260</strokeXoverride>
+  <strokeXoverride>300</strokeXoverride>
   <strokeYoverride>200</strokeYoverride>
   <strokeZoverride>300</strokeZoverride>
   <originOffsetXoverride>0</originOffsetXoverride>
@@ -174,11 +174,12 @@
   <baudRateOverride>115200</baudRateOverride>
   <overridePrinterModels>1</overridePrinterModels>
   <printerModelsOverride></printerModelsOverride>
-  <startingGcode>;BigBox Printer Start Script Begin,;relies on M83 (use relative extrusion distances),,M117 Preparing,M140 S[bed0_temperature] ; set bed temperature,T0 ; select extruder 0,M104 S[extruder0_temperature] ; set extruder 0 temperature,,;home,T0 ; select extruder 0,G28,,;set values,;M92 E290 ;adjust steps per mm,,;move to dock,T0 ; select extruder 0,G1 Z4 F3000 ; lift the head,G1 X70 Y200 F3000 ; move to position in front of dock,G1 X70 Y240 F3000 ; move into dock,,;heat bed,M190 S[bed0_temperature] ; wait for bed temperature,,;heat extruder 0,T0 ; select extruder 0,M109 S[extruder0_temperature] ; set extruder 0 temperature and wait,,;prime extruder 0,T0 ; select extruder 0,G1 E15 F200 ; reverse end of print retraction,G1 E10 F50 ; extrude 10mm,,;move out of dock,T0 ; select extruder 0,G1 X80 Y240 F3000 ; move to position in dock,G1 X80 Y200 F3000 ; move out of dock,,M117 Print starting,,;BigBox Printer Start Script End</startingGcode>
+  <startingGcode>;BigBox Printer Start Script Begin,;relies on M83 (use relative extrusion distances),,M117 Preparing,M140 S[bed0_temperature] ; set bed temperature,T0 ; select extruder 0,M104 S[extruder0_temperature] ; set extruder 0 temperature,,;home,T0 ; select extruder 0,G28,,;set values,;M92 E417.5 ; adjust steps per mm,,;move to dock,T0 ; select extruder 0,G1 Z4 F3000 ; lift the head,G1 X100 Y200 F3000 ; move to position in front of dock,G1 X100 Y240 F3000 ; move into dock,,;heat bed,M190 S[bed0_temperature] ; wait for bed temperature,,;heat extruder 0,T0 ; select extruder 0,M109 S[extruder0_temperature] ; set extruder 0 temperature and wait,,;prime extruder 0,T0 ; select extruder 0,G1 E15 F200 ; reverse end of print retraction,G1 E10 F50 ; extrude 10mm,,;move out of dock,T0 ; select extruder 0,G1 X110 Y240 F3000 ; move to position in dock,G1 X110 Y200 F3000 ; move out of dock,,M117 Print starting,,;BigBox Printer Start Script End</startingGcode>
   <layerChangeGcode></layerChangeGcode>
   <retractionGcode></retractionGcode>
   <toolChangeGcode></toolChangeGcode>
-  <endingGcode>;BigBox Printer End Script Begin,;relies on M83 (use relative extrusion distances),,G91 ; relative positioning,G1 Z10 F360 ; move Z axis by 10mm,G90 ; absolute positioning,,;move to dock,T0 ; select extruder 0,G1 X70 Y200 F3000 ; move to position in front of dock,G1 X70 Y240 F3000 ; move into dock,,;purge extruder 0,T0 ; select extruder 0,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,T0 ; select extruder 0,M104 S0 ; turn off extruder 0,M140 S0 ; turn off bed,M84 ; disable steppers,M106 S0 ; disable cooling fans,,M117 Print complete,,;BigBox Printer End Script End</endingGcode>  <createX3G>0</createX3G>
+  <endingGcode>;BigBox Printer End Script Begin,;relies on M83 (use relative extrusion distances),,G91 ; relative positioning,G1 Z10 F360 ; move Z axis by 10mm,G90 ; absolute positioning,,;move to dock,T0 ; select extruder 0,G1 X100 Y200 F3000 ; move to position in front of dock,G1 X100 Y240 F3000 ; move into dock,,;purge extruder 0,T0 ; select extruder 0,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,T0 ; select extruder 0,M104 S0 ; turn off extruder 0,M140 S0 ; turn off bed,M84 ; disable steppers,M106 S0 ; disable cooling fans,,M117 Print complete,,;BigBox Printer End Script End</endingGcode>
+  <createX3G>0</createX3G>
   <celebration>0</celebration>
   <celebrationSong>Random Song</celebrationSong>
   <createMB5G>0</createMB5G>
@@ -219,7 +220,7 @@
   <thinWallAllowedOverlapPercentage>10</thinWallAllowedOverlapPercentage>
   <horizontalSizeCompensation>0</horizontalSizeCompensation>
   <autoConfigureMaterial name="Innofil ABS">
-    <extruder name="Extruder 0 (left)">
+    <extruder name="Extruder 0 (right)">
       <toolheadNumber>0</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -234,7 +235,7 @@
       <useWipe>0</useWipe>
       <wipeDistance>5</wipeDistance>
     </extruder>
-    <extruder name="Extruder 1 (right)">
+    <extruder name="Extruder 1 (left)">
       <toolheadNumber>1</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -254,7 +255,15 @@
     <fanSpeed>
       <setpoint layer="1" speed="0"/>
     </fanSpeed>
-    <temperatureController name="Extruder 0 (left)">
+	<adjustSpeedForCooling>1</adjustSpeedForCooling>
+	<minSpeedLayerTime>15</minSpeedLayerTime>
+	<minCoolingSpeedSlowdown>20</minCoolingSpeedSlowdown>
+	<increaseFanForCooling>0</increaseFanForCooling>
+	<minFanLayerTime>45</minFanLayerTime>
+	<maxCoolingFanSpeed>80</maxCoolingFanSpeed>
+	<increaseFanForBridging>1</increaseFanForBridging>
+	<bridgingFanSpeed>80</bridgingFanSpeed>
+    <temperatureController name="Extruder 0 (right)">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -262,7 +271,7 @@
       <stabilizeAtStartup>1</stabilizeAtStartup>
       <setpoint layer="1" temperature="260"/>
     </temperatureController>
-    <temperatureController name="Extruder 1 (right)">
+    <temperatureController name="Extruder 1 (left)">
       <temperatureNumber>1</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -291,7 +300,7 @@
     <maxMovementDetourFactor>1</maxMovementDetourFactor>
   </autoConfigureMaterial>
   <autoConfigureMaterial name="PLA">
-    <extruder name="Extruder 0 (left)">
+    <extruder name="Extruder 0 (right)">
       <toolheadNumber>0</toolheadNumber>
       <diameter>0.4</diameter>
       <autoWidth>1</autoWidth>
@@ -307,7 +316,7 @@
       <useWipe>0</useWipe>
       <wipeDistance>5</wipeDistance>
     </extruder>
-    <extruder name="Extruder 1 (right)">
+    <extruder name="Extruder 1 (left)">
       <toolheadNumber>1</toolheadNumber>
       <diameter>0.4</diameter>
       <autoWidth>1</autoWidth>
@@ -336,7 +345,15 @@
       <setpoint layer="9" speed="90"/>
       <setpoint layer="10" speed="100"/>
     </fanSpeed>
-    <temperatureController name="Extruder 0 (left)">
+    <adjustSpeedForCooling>1</adjustSpeedForCooling>
+    <minSpeedLayerTime>15</minSpeedLayerTime>
+    <minCoolingSpeedSlowdown>20</minCoolingSpeedSlowdown>
+    <increaseFanForCooling>0</increaseFanForCooling>
+    <minFanLayerTime>45</minFanLayerTime>
+    <maxCoolingFanSpeed>80</maxCoolingFanSpeed>
+    <increaseFanForBridging>1</increaseFanForBridging>
+    <bridgingFanSpeed>80</bridgingFanSpeed>
+    <temperatureController name="Extruder 0 (right)">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -344,7 +361,7 @@
       <stabilizeAtStartup>1</stabilizeAtStartup>
       <setpoint layer="1" temperature="210"/>
     </temperatureController>
-    <temperatureController name="Extruder 1 (right)">
+    <temperatureController name="Extruder 1 (left)">
       <temperatureNumber>1</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -373,7 +390,7 @@
     <maxMovementDetourFactor>3</maxMovementDetourFactor>
   </autoConfigureMaterial>
   <autoConfigureMaterial name="Colorfabb HT">
-    <extruder name="Extruder 0 (left)">
+    <extruder name="Extruder 0 (right)">
       <toolheadNumber>0</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -388,7 +405,7 @@
       <useWipe>0</useWipe>
       <wipeDistance>5</wipeDistance>
     </extruder>
-    <extruder name="Extruder 1 (right)">
+    <extruder name="Extruder 1 (left)">
       <toolheadNumber>1</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -408,7 +425,15 @@
     <fanSpeed>
       <setpoint layer="1" speed="0"/>
     </fanSpeed>
-    <temperatureController name="Extruder 0 (left)">
+	<adjustSpeedForCooling>1</adjustSpeedForCooling>
+	<minSpeedLayerTime>15</minSpeedLayerTime>
+	<minCoolingSpeedSlowdown>20</minCoolingSpeedSlowdown>
+	<increaseFanForCooling>0</increaseFanForCooling>
+	<minFanLayerTime>45</minFanLayerTime>
+	<maxCoolingFanSpeed>80</maxCoolingFanSpeed>
+	<increaseFanForBridging>1</increaseFanForBridging>
+	<bridgingFanSpeed>80</bridgingFanSpeed>
+    <temperatureController name="Extruder 0 (right)">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -416,7 +441,7 @@
       <stabilizeAtStartup>1</stabilizeAtStartup>
       <setpoint layer="1" temperature="260"/>
     </temperatureController>
-    <temperatureController name="Extruder 1 (right)">
+    <temperatureController name="Extruder 1 (left)">
       <temperatureNumber>1</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -445,7 +470,7 @@
     <maxMovementDetourFactor>3</maxMovementDetourFactor>
   </autoConfigureMaterial>
   <autoConfigureMaterial name="Colorfabb nGen">
-    <extruder name="Extruder 0 (left)">
+    <extruder name="Extruder 0 (right)">
       <toolheadNumber>0</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -460,7 +485,7 @@
       <useWipe>0</useWipe>
       <wipeDistance>5</wipeDistance>
     </extruder>
-    <extruder name="Extruder 1 (right)">
+    <extruder name="Extruder 1 (left)">
       <toolheadNumber>1</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -486,7 +511,15 @@
       <setpoint layer="8" speed="35"/>
       <setpoint layer="9" speed="40"/>
     </fanSpeed>
-    <temperatureController name="Extruder 0 (left)">
+	<adjustSpeedForCooling>1</adjustSpeedForCooling>
+	<minSpeedLayerTime>15</minSpeedLayerTime>
+	<minCoolingSpeedSlowdown>20</minCoolingSpeedSlowdown>
+	<increaseFanForCooling>0</increaseFanForCooling>
+	<minFanLayerTime>45</minFanLayerTime>
+	<maxCoolingFanSpeed>80</maxCoolingFanSpeed>
+	<increaseFanForBridging>1</increaseFanForBridging>
+	<bridgingFanSpeed>80</bridgingFanSpeed>
+    <temperatureController name="Extruder 0 (right)">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -494,7 +527,7 @@
       <stabilizeAtStartup>1</stabilizeAtStartup>
       <setpoint layer="1" temperature="220"/>
     </temperatureController>
-    <temperatureController name="Extruder 1 (right)">
+    <temperatureController name="Extruder 1 (left)">
       <temperatureNumber>1</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -523,7 +556,7 @@
     <maxMovementDetourFactor>3</maxMovementDetourFactor>
   </autoConfigureMaterial>
   <autoConfigureMaterial name="Colorfabb PLA/PHA">
-    <extruder name="Extruder 0 (left)">
+    <extruder name="Extruder 0 (right)">
       <toolheadNumber>0</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -538,7 +571,7 @@
       <useWipe>0</useWipe>
       <wipeDistance>5</wipeDistance>
     </extruder>
-    <extruder name="Extruder 1 (right)">
+    <extruder name="Extruder 1 (left)">
       <toolheadNumber>1</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -566,7 +599,15 @@
       <setpoint layer="9" speed="90"/>
       <setpoint layer="10" speed="100"/>
     </fanSpeed>
-    <temperatureController name="Extruder 0 (left)">
+	<adjustSpeedForCooling>1</adjustSpeedForCooling>
+	<minSpeedLayerTime>15</minSpeedLayerTime>
+	<minCoolingSpeedSlowdown>20</minCoolingSpeedSlowdown>
+	<increaseFanForCooling>0</increaseFanForCooling>
+	<minFanLayerTime>45</minFanLayerTime>
+	<maxCoolingFanSpeed>80</maxCoolingFanSpeed>
+	<increaseFanForBridging>1</increaseFanForBridging>
+	<bridgingFanSpeed>80</bridgingFanSpeed>
+    <temperatureController name="Extruder 0 (right)">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -574,7 +615,7 @@
       <stabilizeAtStartup>1</stabilizeAtStartup>
       <setpoint layer="1" temperature="190"/>
     </temperatureController>
-    <temperatureController name="Extruder 1 (right)">
+    <temperatureController name="Extruder 1 (left)">
       <temperatureNumber>1</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -603,7 +644,7 @@
     <maxMovementDetourFactor>3</maxMovementDetourFactor>
   </autoConfigureMaterial>
   <autoConfigureMaterial name="Colorfabb XT">
-    <extruder name="Extruder 0 (left)">
+    <extruder name="Extruder 0 (right)">
       <toolheadNumber>0</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -618,7 +659,7 @@
       <useWipe>0</useWipe>
       <wipeDistance>5</wipeDistance>
     </extruder>
-    <extruder name="Extruder 1 (right)">
+    <extruder name="Extruder 1 (left)">
       <toolheadNumber>1</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -644,7 +685,15 @@
       <setpoint layer="8" speed="35"/>
       <setpoint layer="9" speed="40"/>
     </fanSpeed>
-    <temperatureController name="Extruder 0 (left)">
+	<adjustSpeedForCooling>1</adjustSpeedForCooling>
+	<minSpeedLayerTime>15</minSpeedLayerTime>
+	<minCoolingSpeedSlowdown>20</minCoolingSpeedSlowdown>
+	<increaseFanForCooling>0</increaseFanForCooling>
+	<minFanLayerTime>45</minFanLayerTime>
+	<maxCoolingFanSpeed>80</maxCoolingFanSpeed>
+	<increaseFanForBridging>1</increaseFanForBridging>
+	<bridgingFanSpeed>80</bridgingFanSpeed>
+    <temperatureController name="Extruder 0 (right)">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -652,7 +701,7 @@
       <stabilizeAtStartup>1</stabilizeAtStartup>
       <setpoint layer="1" temperature="245"/>
     </temperatureController>
-    <temperatureController name="Extruder 1 (right)">
+    <temperatureController name="Extruder 1 (left)">
       <temperatureNumber>1</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -681,7 +730,7 @@
     <maxMovementDetourFactor>3</maxMovementDetourFactor>
   </autoConfigureMaterial>
   <autoConfigureMaterial name="spoolWorks Edge">
-    <extruder name="Extruder 0 (left)">
+    <extruder name="Extruder 0 (right)">
       <toolheadNumber>0</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -696,7 +745,7 @@
       <useWipe>0</useWipe>
       <wipeDistance>5</wipeDistance>
     </extruder>
-    <extruder name="Extruder 1 (right)">
+    <extruder name="Extruder 1 (left)">
       <toolheadNumber>1</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -720,7 +769,7 @@
       <setpoint layer="6" speed="25"/>
       <setpoint layer="7" speed="30"/>
     </fanSpeed>
-    <temperatureController name="Extruder 0 (left)">
+    <temperatureController name="Extruder 0 (right)">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -728,7 +777,7 @@
       <stabilizeAtStartup>1</stabilizeAtStartup>
       <setpoint layer="1" temperature="240"/>
     </temperatureController>
-    <temperatureController name="Extruder 1 (right)">
+    <temperatureController name="Extruder 1 (left)">
       <temperatureNumber>1</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -756,8 +805,8 @@
 	<avoidCrossingOutline>1</avoidCrossingOutline>
     <maxMovementDetourFactor>3</maxMovementDetourFactor>
   </autoConfigureMaterial>
-  <autoConfigureMaterial name="PLA (left) E3D Scaffold (right)">
-    <extruder name="Extruder 0 (left)">
+  <autoConfigureMaterial name="PLA (right) E3D Scaffold (left)">
+    <extruder name="Extruder 0 (right)">
       <toolheadNumber>0</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -772,7 +821,7 @@
       <useWipe>0</useWipe>
       <wipeDistance>5</wipeDistance>
     </extruder>
-    <extruder name="Extruder 1 (right)">
+    <extruder name="Extruder 1 (left)">
       <toolheadNumber>1</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -800,7 +849,15 @@
       <setpoint layer="9" speed="90"/>
       <setpoint layer="10" speed="100"/>
     </fanSpeed>
-    <temperatureController name="Extruder 0 (left)">
+	<adjustSpeedForCooling>1</adjustSpeedForCooling>
+	<minSpeedLayerTime>15</minSpeedLayerTime>
+	<minCoolingSpeedSlowdown>20</minCoolingSpeedSlowdown>
+	<increaseFanForCooling>0</increaseFanForCooling>
+	<minFanLayerTime>45</minFanLayerTime>
+	<maxCoolingFanSpeed>80</maxCoolingFanSpeed>
+	<increaseFanForBridging>1</increaseFanForBridging>
+	<bridgingFanSpeed>80</bridgingFanSpeed>
+    <temperatureController name="Extruder 0 (right)">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -808,7 +865,7 @@
       <stabilizeAtStartup>1</stabilizeAtStartup>
       <setpoint layer="1" temperature="210"/>
     </temperatureController>
-    <temperatureController name="Extruder 1 (right)">
+    <temperatureController name="Extruder 1 (left)">
       <temperatureNumber>1</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -836,8 +893,8 @@
 	<avoidCrossingOutline>1</avoidCrossingOutline>
     <maxMovementDetourFactor>3</maxMovementDetourFactor>
   </autoConfigureMaterial>
-  <autoConfigureMaterial name="Colorfabb PLA/PHA (left) E3D Scaffold (right)">
-    <extruder name="Extruder 0 (left)">
+  <autoConfigureMaterial name="Colorfabb PLA/PHA (right) E3D Scaffold (left)">
+    <extruder name="Extruder 0 (right)">
       <toolheadNumber>0</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -852,7 +909,7 @@
       <useWipe>0</useWipe>
       <wipeDistance>5</wipeDistance>
     </extruder>
-    <extruder name="Extruder 1 (right)">
+    <extruder name="Extruder 1 (left)">
       <toolheadNumber>1</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -880,7 +937,15 @@
       <setpoint layer="9" speed="90"/>
       <setpoint layer="10" speed="100"/>
     </fanSpeed>
-    <temperatureController name="Extruder 0 (left)">
+	<adjustSpeedForCooling>1</adjustSpeedForCooling>
+	<minSpeedLayerTime>15</minSpeedLayerTime>
+	<minCoolingSpeedSlowdown>20</minCoolingSpeedSlowdown>
+	<increaseFanForCooling>0</increaseFanForCooling>
+	<minFanLayerTime>45</minFanLayerTime>
+	<maxCoolingFanSpeed>80</maxCoolingFanSpeed>
+	<increaseFanForBridging>1</increaseFanForBridging>
+	<bridgingFanSpeed>80</bridgingFanSpeed>
+    <temperatureController name="Extruder 0 (right)">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -888,7 +953,7 @@
       <stabilizeAtStartup>1</stabilizeAtStartup>
       <setpoint layer="1" temperature="190"/>
     </temperatureController>
-    <temperatureController name="Extruder 1 (right)">
+    <temperatureController name="Extruder 1 (left)">
       <temperatureNumber>1</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -916,8 +981,8 @@
 	<avoidCrossingOutline>1</avoidCrossingOutline>
     <maxMovementDetourFactor>3</maxMovementDetourFactor>
   </autoConfigureMaterial>
-  <autoConfigureMaterial name="Colorfabb XT (left) E3D Scaffold (right)">
-    <extruder name="Extruder 0 (left)">
+  <autoConfigureMaterial name="Colorfabb XT (right) E3D Scaffold (left)">
+    <extruder name="Extruder 0 (right)">
       <toolheadNumber>0</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -932,7 +997,7 @@
       <useWipe>0</useWipe>
       <wipeDistance>5</wipeDistance>
     </extruder>
-    <extruder name="Extruder 1 (right)">
+    <extruder name="Extruder 1 (left)">
       <toolheadNumber>1</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -958,7 +1023,15 @@
       <setpoint layer="8" speed="35"/>
       <setpoint layer="9" speed="40"/>
     </fanSpeed>
-    <temperatureController name="Extruder 0 (left)">
+	<adjustSpeedForCooling>1</adjustSpeedForCooling>
+	<minSpeedLayerTime>15</minSpeedLayerTime>
+	<minCoolingSpeedSlowdown>20</minCoolingSpeedSlowdown>
+	<increaseFanForCooling>0</increaseFanForCooling>
+	<minFanLayerTime>45</minFanLayerTime>
+	<maxCoolingFanSpeed>80</maxCoolingFanSpeed>
+	<increaseFanForBridging>1</increaseFanForBridging>
+	<bridgingFanSpeed>80</bridgingFanSpeed>
+    <temperatureController name="Extruder 0 (right)">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -966,7 +1039,7 @@
       <stabilizeAtStartup>1</stabilizeAtStartup>
       <setpoint layer="1" temperature="245"/>
     </temperatureController>
-    <temperatureController name="Extruder 1 (right)">
+    <temperatureController name="Extruder 1 (left)">
       <temperatureNumber>1</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
@@ -995,7 +1068,7 @@
     <maxMovementDetourFactor>3</maxMovementDetourFactor>
   </autoConfigureMaterial>
   <autoConfigureMaterial name="spoolWorks Edge (right) E3D Scaffold (left)">
-    <extruder name="Extruder 0 (left)">
+    <extruder name="Extruder 0 (right)">
       <toolheadNumber>0</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -1010,7 +1083,7 @@
       <useWipe>0</useWipe>
       <wipeDistance>5</wipeDistance>
     </extruder>
-    <extruder name="Extruder 1 (right)">
+    <extruder name="Extruder 1 (left)">
       <toolheadNumber>1</toolheadNumber>
       <autoWidth>1</autoWidth>
       <width>0.48</width>
@@ -1034,21 +1107,21 @@
       <setpoint layer="6" speed="25"/>
       <setpoint layer="7" speed="30"/>
     </fanSpeed>
-    <temperatureController name="Extruder 0 (left)">
+    <temperatureController name="Extruder 0 (right)">
       <temperatureNumber>0</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
       <relayBetweenLoops>0</relayBetweenLoops>
       <stabilizeAtStartup>1</stabilizeAtStartup>
-      <setpoint layer="1" temperature="200"/>
+      <setpoint layer="1" temperature="240"/>
     </temperatureController>
-    <temperatureController name="Extruder 1 (right)">
+    <temperatureController name="Extruder 1 (left)">
       <temperatureNumber>1</temperatureNumber>
       <isHeatedBed>0</isHeatedBed>
       <relayBetweenLayers>0</relayBetweenLayers>
       <relayBetweenLoops>0</relayBetweenLoops>
       <stabilizeAtStartup>1</stabilizeAtStartup>
-      <setpoint layer="1" temperature="240"/>
+      <setpoint layer="1" temperature="200"/>
     </temperatureController>
     <temperatureController name="Heated Bed">
       <temperatureNumber>0</temperatureNumber>
@@ -1196,7 +1269,7 @@
 	<rapidXYspeed>6000</rapidXYspeed>
 	<rapidZspeed>360</rapidZspeed>
   </autoConfigureQuality>
-  <autoConfigureExtruders name="Extruder 0 (left) only" allowedToolheads="1">
+  <autoConfigureExtruders name="Extruder 0 (right) only" allowedToolheads="1">
     <primaryExtruder>0</primaryExtruder>
     <raftExtruder>0</raftExtruder>
     <skirtExtruder>0</skirtExtruder>
@@ -1205,16 +1278,16 @@
     <useSkirt>1</useSkirt>
     <usePrimePillar>0</usePrimePillar>
     <useOozeShield>0</useOozeShield>
-    <toggleTemperatureController name="Extruder 0 (left)" status="on" stabilize="on"/>
-    <toggleTemperatureController name="Extruder 1 (right)" status="off" stabilize="off"/>
-    <startingGcode>;BigBox Printer Start Script Begin,;relies on M83 (use relative extrusion distances),,M117 Preparing,M140 S[bed0_temperature] ; set bed temperature,T0 ; select extruder 0,M104 S[extruder0_temperature] ; set extruder 0 temperature,,;home,T0 ; select extruder 0,G28,,;set values,;M92 E290 ;adjust steps per mm,,;move to dock,T0 ; select extruder 0,G1 Z4 F3000 ; lift the head,G1 X70 Y200 F3000 ; move to position in front of dock,G1 X70 Y240 F3000 ; move into dock,,;heat bed,M190 S[bed0_temperature] ; wait for bed temperature,,;heat extruder 0,T0 ; select extruder 0,M109 S[extruder0_temperature] ; set extruder 0 temperature and wait,,;prime extruder 0,T0 ; select extruder 0,G1 E15 F200 ; reverse end of print retraction,G1 E10 F50 ; extrude 10mm,,;move out of dock,T0 ; select extruder 0,G1 X80 Y240 F3000 ; move to position in dock,G1 X80 Y200 F3000 ; move out of dock,,M117 Print starting,,;BigBox Printer Start Script End</startingGcode>
+    <toggleTemperatureController name="Extruder 0 (right)" status="on" stabilize="on"/>
+    <toggleTemperatureController name="Extruder 1 (left)" status="off" stabilize="off"/>
+    <startingGcode>;BigBox Printer Start Script Begin,;relies on M83 (use relative extrusion distances),,M117 Preparing,M140 S[bed0_temperature] ; set bed temperature,T0 ; select extruder 0,M104 S[extruder0_temperature] ; set extruder 0 temperature,,;home,T0 ; select extruder 0,G28,,;set values,;M92 E417.5 ; adjust steps per mm,,;move to dock,T0 ; select extruder 0,G1 Z4 F3000 ; lift the head,G1 X100 Y200 F3000 ; move to position in front of dock,G1 X100 Y240 F3000 ; move into dock,,;heat bed,M190 S[bed0_temperature] ; wait for bed temperature,,;heat extruder 0,T0 ; select extruder 0,M109 S[extruder0_temperature] ; set extruder 0 temperature and wait,,;prime extruder 0,T0 ; select extruder 0,G1 E15 F200 ; reverse end of print retraction,G1 E10 F50 ; extrude 10mm,,;move out of dock,T0 ; select extruder 0,G1 X110 Y240 F3000 ; move to position in dock,G1 X110 Y200 F3000 ; move out of dock,,M117 Print starting,,;BigBox Printer Start Script End</startingGcode>
     <toolChangeGcode></toolChangeGcode>
-    <endingGcode>;BigBox Printer End Script Begin,;relies on M83 (use relative extrusion distances),,G91 ; relative positioning,G1 Z10 F360 ; move Z axis by 10mm,G90 ; absolute positioning,,;move to dock,T0 ; select extruder 0,G1 X70 Y200 F3000 ; move to position in front of dock,G1 X70 Y240 F3000 ; move into dock,,;purge extruder 0,T0 ; select extruder 0,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,T0 ; select extruder 0,M104 S0 ; turn off extruder 0,M140 S0 ; turn off bed,M84 ; disable steppers,M106 S0 ; disable cooling fans,,M117 Print complete,,;BigBox Printer End Script End</endingGcode>
-    <strokeXoverride>260</strokeXoverride>
+    <endingGcode>;BigBox Printer End Script Begin,;relies on M83 (use relative extrusion distances),,G91 ; relative positioning,G1 Z10 F360 ; move Z axis by 10mm,G90 ; absolute positioning,,;move to dock,T0 ; select extruder 0,G1 X100 Y200 F3000 ; move to position in front of dock,G1 X100 Y240 F3000 ; move into dock,,;purge extruder 0,T0 ; select extruder 0,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,T0 ; select extruder 0,M104 S0 ; turn off extruder 0,M140 S0 ; turn off bed,M84 ; disable steppers,M106 S0 ; disable cooling fans,,M117 Print complete,,;BigBox Printer End Script End</endingGcode>
+    <strokeXoverride>300</strokeXoverride>
     <strokeYoverride>200</strokeYoverride>
     <strokeZoverride>300</strokeZoverride>
   </autoConfigureExtruders>
-  <autoConfigureExtruders name="Extruder 1 (right) only" allowedToolheads="1">
+  <autoConfigureExtruders name="Extruder 1 (left) only" allowedToolheads="1">
     <primaryExtruder>1</primaryExtruder>
     <raftExtruder>1</raftExtruder>
     <skirtExtruder>1</skirtExtruder>
@@ -1223,12 +1296,12 @@
     <useSkirt>1</useSkirt>
     <usePrimePillar>0</usePrimePillar>
     <useOozeShield>0</useOozeShield>
-    <toggleTemperatureController name="Extruder 0 (left)" status="off" stabilize="off"/>
-    <toggleTemperatureController name="Extruder 1 (right)" status="on" stabilize="on"/>
-    <startingGcode>;BigBox Printer Start Script Begin,;relies on M83 (use relative extrusion distances),,M117 Preparing,M140 S[bed0_temperature] ; set bed temperature,T1 ; select extruder 1,M104 S[extruder1_temperature] ; set extruder 1 temperature,,;home,T0 ; select extruder 0,G28,,;set values,M218 T1 X35 Y0 ; set extruder 1 offset,;M92 E290 ; adjust steps per mm,,;move to dock,T1 ; select extruder 1,G1 Z4 F3000 ; lift the head,G1 X70 Y200 F3000 ; move to position in front of dock,G1 X70 Y240 F3000 ; move into dock,,;heat bed,M190 S[bed0_temperature] ; wait for bed temperature,,;heat extruder 1,T1 ; select extruder 1,M109 S[extruder1_temperature] ; set extruder 1 temperature and wait,,;prime extruder 0,T1 ; select extruder 1,G1 E15 F200 ; reverse end of print retraction,G1 E10 F50 ; extrude 10mm,,;move out of dock,T0 ; select extruder 0,G1 X80 Y240 F3000 ; move to position in dock,G1 X80 Y200 F3000 ; move out of dock,,M117 Print starting,,;BigBox Printer Start Script End</startingGcode>
+    <toggleTemperatureController name="Extruder 0 (right)" status="off" stabilize="off"/>
+    <toggleTemperatureController name="Extruder 1 (left)" status="on" stabilize="on"/>
+    <startingGcode>;BigBox Printer Start Script Begin,;relies on M83 (use relative extrusion distances),,M117 Preparing,M140 S[bed0_temperature] ; set bed temperature,T1 ; select extruder 1,M104 S[extruder1_temperature] ; set extruder 1 temperature,,;home,T0 ; select extruder 0,G28,,;set values,M218 T1 X-38 Y0 ; set extruder 1 offset,;M92 E417.5 ;adjust steps per mm,,;move to dock,T0 ; select extruder 0,G1 Z4 F3000 ; lift the head,G1 X100 Y200 F3000 ; move to position in front of dock,G1 X100 Y240 F3000 ; move into dock,,;heat bed,M190 S[bed0_temperature] ; wait for bed temperature,,;heat extruder 1,T1 ; select extruder 1,M109 S[extruder1_temperature] ; set extruder 1 temperature and wait,,;prime extruder 1,T1 ; select extruder 1,G1 E15 F200 ; reverse end of print retraction,G1 E10 F50 ; extrude 10mm,,;move out of dock,T0 ; select extruder 0,G1 X110 Y240 F3000 ; move to position in dock,G1 X110 Y200 F3000 ; move out of dock,,M117 Print starting,,;BigBox Printer Start Script End</startingGcode>
     <toolChangeGcode/>
-    <endingGcode>;BigBox Printer End Script Begin,;relies on M83 (use relative extrusion distances),,G91 ; relative positioning,G1 Z10 F360 ; move Z axis by 10mm,G90 ; absolute positioning,,;move to dock,T0 ; select extruder 0,G1 X70 Y200 F3000 ; move to position in front of dock,G1 X70 Y240 F3000 ; move into dock,,;purge extruder 1,T1 ; select extruder 1,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,T1 ; select extruder 1,M104 S0 ; turn off extruder 1,M140 S0 ; turn off bed,M84 ; disable steppers,M106 S0 ; disable cooling fans,T0 ; select extruder 0,,M117 Print complete,,;BigBox Printer End Script End</endingGcode>
-    <strokeXoverride>260</strokeXoverride>
+    <endingGcode>;BigBox Printer End Script Begin,;relies on M83 (use relative extrusion distances),,G91 ; relative positioning,G1 Z10 F360 ; move Z axis by 10mm,G90 ; absolute positioning,,;move to dock,T0 ; select extruder 0,G1 X100 Y200 F3000 ; move to position in front of dock,G1 X100 Y240 F3000 ; move into dock,,;purge extruder 1,T1 ; select extruder 1,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,T1 ; select extruder 1,M104 S0 ; turn off extruder 1,M140 S0 ; turn off bed,M84 ; disable steppers,M106 S0 ; disable cooling fans,T0 ; select extruder 0,,M117 Print complete,,;BigBox Printer End Script End</endingGcode>
+    <strokeXoverride>300</strokeXoverride>
     <strokeYoverride>200</strokeYoverride>
     <strokeZoverride>300</strokeZoverride>
   </autoConfigureExtruders>
@@ -1241,16 +1314,16 @@
     <useSkirt>1</useSkirt>
     <usePrimePillar>0</usePrimePillar>
     <useOozeShield>0</useOozeShield>
-    <toggleTemperatureController name="Extruder 0 (left)" status="on" stabilize="on"/>
-    <toggleTemperatureController name="Extruder 1 (right)" status="on" stabilize="on"/>
-    <startingGcode>;BigBox Printer Start Script Begin,;relies on M83 (use relative extrusion distances),,M117 Preparing,M140 S[bed0_temperature] ; set bed temperature,T0 ; select extruder 0,M104 S[extruder0_temperature] ; set extruder 0 temperature,T1 ; select extruder 1,M104 S[extruder1_temperature] ; set extruder 1 temperature,,;home,T0 ; select extruder 0,G28,,;set values,M218 T1 X35 Y0 ; set extruder 1 offset,;M92 E290 ; adjust steps per mm for your filament,,;move to dock,T0 ; select extruder 0,G1 Z4 F3000 ; lift the head,G1 X70 Y200 F3000 ; move to position in front of dock,G1 X70 Y240 F3000 ; move into dock,,;heat bed,M190 S[bed0_temperature] ; wait for bed temperature,,;heat extruder 0,T0 ; select extruder 0,M109 S[extruder0_temperature] ; set extruder 0 temperature and wait,,;heat extruder 1,T1 ; select extruder 1,M109 S[extruder1_temperature] ; set extruder 1 temperature and wait,,M117 Print starting,,;BigBox Printer Start Script End</startingGcode>
+    <toggleTemperatureController name="Extruder 0 (right)" status="on" stabilize="on"/>
+    <toggleTemperatureController name="Extruder 1 (left)" status="on" stabilize="on"/>
+    <startingGcode>;BigBox Printer Start Script Begin,;relies on M83 (use relative extrusion distances),,M117 Preparing,M140 S[bed0_temperature] ; set bed temperature,T0 ; select extruder 0,M104 S[extruder0_temperature] ; set extruder 0 temperature,T1 ; select extruder 1,M104 S[extruder1_temperature] ; set extruder 1 temperature,,;home,T0 ; select extruder 0,G28,,;set values,M218 T1 X-38 Y0 ; set extruder 1 offset,;M92 E417.5 ; adjust steps per mm for your filament,,;move to dock,T0 ; select extruder 0,G1 Z4 F3000 ; lift the head,G1 X100 Y200 F3000 ; move to position in front of dock,G1 X100 Y240 F3000 ; move into dock,,;heat bed,M190 S[bed0_temperature] ; wait for bed temperature,,;heat extruder 0,T0 ; select extruder 0,M109 S[extruder0_temperature] ; set extruder 0 temperature and wait,,;heat extruder 1,T1 ; select extruder 1,M109 S[extruder1_temperature] ; set extruder 1 temperature and wait,,M117 Print starting,,;BigBox Printer Start Script End</startingGcode>
     <toolChangeGcode></toolChangeGcode>
-    <endingGcode>;BigBox Printer End Script Begin,;relies on M83 (use relative extrusion distances),,G91 ; relative positioning,G1 Z10 F360 ; move Z axis by 10mm,G90 ; absolute positioning,,;move to dock,T0 ; select extruder 0,G1 X70 Y200 F3000 ; move to position in front of dock,G1 X70 Y240 F3000 ; move into dock,,;purge extruder 0,T0 ; select extruder 0,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,;purge extruder 2,T1 ; select extruder 1,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,T0 ; select extruder 0,M104 S0 ; turn off extruder 0,T1 ; select extruder 1,M104 S0 ; turn off extruder 1,M140 S0 ; turn off bed,M84 ; disable steppers,M106 S0 ; disable cooling fans,T0 ; select extruder 0,,M117 Print complete,,;BigBox Printer End Script End</endingGcode>
-    <strokeXoverride>260</strokeXoverride>
+    <endingGcode>;BigBox Printer End Script Begin,;relies on M83 (use relative extrusion distances),,G91 ; relative positioning,G1 Z10 F360 ; move Z axis by 10mm,G90 ; absolute positioning,,;move to dock,T0 ; select extruder 0,G1 X100 Y200 F3000 ; move to position in front of dock,G1 X100 Y240 F3000 ; move into dock,,;purge extruder 0,T0 ; select extruder 0,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,;purge extruder 1,T1 ; select extruder 1,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,T0 ; select extruder 0,M104 S0 ; turn off extruder 0,T1 ; select extruder 1,M104 S0 ; turn off extruder 1,M140 S0 ; turn off bed,M84 ; disable steppers,M106 S0 ; disable cooling fans,T0 ; select extruder 0,,M117 Print complete,,;BigBox Printer End Script End</endingGcode>
+    <strokeXoverride>300</strokeXoverride>
     <strokeYoverride>200</strokeYoverride>
     <strokeZoverride>300</strokeZoverride>
   </autoConfigureExtruders>
-  <autoConfigureExtruders name="Both Extruders Oozeless/Ram purge" allowedToolheads="2">
+  <autoConfigureExtruders name="Both Extruders Oozeles/Ram purge" allowedToolheads="2">
     <primaryExtruder>0</primaryExtruder>
     <raftExtruder>0</raftExtruder>
     <skirtExtruder>999</skirtExtruder>
@@ -1259,12 +1332,12 @@
     <useSkirt>1</useSkirt>
     <usePrimePillar>0</usePrimePillar>
     <useOozeShield>0</useOozeShield>
-    <toggleTemperatureController name="Extruder 0 (left)" status="on" stabilize="on"/>
-    <toggleTemperatureController name="Extruder 1 (right)" status="on" stabilize="on"/>
-    <startingGcode>;BigBox Printer Start Script Begin,;relies on M83 (use relative extrusion distances),,M117 Preparing,M140 S[bed0_temperature] ; set bed temperature,T0 ; select extruder 0,M104 S[extruder0_temperature] ; set extruder 0 temperature,T1 ; select extruder 1,M104 S[extruder1_temperature] ; set extruder 1 temperature,,;home,T0 ; select extruder 0,G28,,;set values,M218 T1 X35 Y0 ; set extruder 1 offset,;M92 E290 ; adjust steps per mm for your filament,,;move to dock,T0 ; select extruder 0,G1 Z4 F3000 ; lift the head,G1 X70 Y200 F3000 ; move to position in front of dock,G1 X70 Y240 F3000 ; move into dock,,;heat bed,M190 S[bed0_temperature] ; wait for bed temperature,,;heat extruder 0,T0 ; select extruder 0,M109 S[extruder0_temperature] ; set extruder 0 temperature and wait,,;heat extruder 1,T1 ; select extruder 1,M109 S[extruder1_temperature] ; set extruder 1 temperature and wait,,M117 Print starting,,;BigBox Printer Start Script End</startingGcode>
-    <toolChangeGcode>;BigBox Oozeless Tool Change Script Begin,;relies on M83 (use relative extrusion distances),,;move to dock,T0,G1 X70 Y200 F3000,G1 X70 Y240 F3000,,;purge old extruder,{IF OLDTOOL=0}T0,{IF OLDTOOL=0}G1 E25 F400,{IF OLDTOOL=0}G1 E-14  F4000,{IF OLDTOOL=1}T1,{IF OLDTOOL=1}G1 E25 F400,{IF OLDTOOL=1}G1 E-14  F4000,,;extruder steps per mm,;uncomment if you want to use and set values,;{IF NEWTOOL=0}M92 E300.0 ; steps per mm extruder 0 (left),;{IF NEWTOOL=1}M92 E300.0 ; steps per mm extruder 0 (right),,;prime new extruder,{IF NEWTOOL=0}T0,{IF NEWTOOL=1}T1,G1 E15 F200,G1 E5 F50,G1 E-1.5 F3000,,;move out of dock,T0,G1 X80 Y240 F3000,G1 X80 Y200 F3000,,;BigBox Oozeless Tool Change Script End</toolChangeGcode>
-    <endingGcode>;BigBox Printer End Script Begin,;relies on M83 (use relative extrusion distances),,G91 ; relative positioning,G1 Z10 F360 ; move Z axis by 10mm,G90 ; absolute positioning,,;move to dock,T0 ; select extruder 0,G1 X70 Y200 F3000 ; move to position in front of dock,G1 X70 Y240 F3000 ; move into dock,,;purge extruder 0,T0 ; select extruder 0,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,;purge extruder 2,T1 ; select extruder 1,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,T0 ; select extruder 0,M104 S0 ; turn off extruder 0,T1 ; select extruder 1,M104 S0 ; turn off extruder 1,M140 S0 ; turn off bed,M84 ; disable steppers,M106 S0 ; disable cooling fans,T0 ; select extruder 0,,M117 Print complete,,;BigBox Printer End Script End</endingGcode>
-    <strokeXoverride>260</strokeXoverride>
+    <toggleTemperatureController name="Extruder 0 (right)" status="on" stabilize="on"/>
+    <toggleTemperatureController name="Extruder 1 (left)" status="on" stabilize="on"/>
+    <startingGcode>;BigBox Printer Start Script Begin,;relies on M83 (use relative extrusion distances),,M117 Preparing,M140 S[bed0_temperature] ; set bed temperature,T0 ; select extruder 0,M104 S[extruder0_temperature] ; set extruder 0 temperature,T1 ; select extruder 1,M104 S[extruder1_temperature] ; set extruder 1 temperature,,;home,T0 ; select extruder 0,G28,,;set values,M218 T1 X-38 Y0 ; set extruder 1 offset,;M92 E417.5 ; adjust steps per mm for your filament,,;move to dock,T0 ; select extruder 0,G1 Z4 F3000 ; lift the head,G1 X100 Y200 F3000 ; move to position in front of dock,G1 X100 Y240 F3000 ; move into dock,,;heat bed,M190 S[bed0_temperature] ; wait for bed temperature,,;heat extruder 0,T0 ; select extruder 0,M109 S[extruder0_temperature] ; set extruder 0 temperature and wait,,;heat extruder 1,T1 ; select extruder 1,M109 S[extruder1_temperature] ; set extruder 1 temperature and wait,,M117 Print starting,,;BigBox Printer Start Script End</startingGcode>
+    <toolChangeGcode>;BigBox Oozeless Tool Change Script Begin,;relies on M83 (use relative extrusion distances),,;move to dock,T0,G1 X100 Y200 F3000,G1 X100 Y240 F3000,,;purge old extruder,{IF OLDTOOL=0}T0,{IF OLDTOOL=0}G1 E25 F400,{IF OLDTOOL=0}G1 E-14  F4000,{IF OLDTOOL=1}T1,{IF OLDTOOL=1}G1 E25 F400,{IF OLDTOOL=1}G1 E-14  F4000,,;extruder steps per mm,;uncomment if you want to use and set values,;{IF NEWTOOL=0}M92 E417.5 ; steps per mm Extruder 0 (right),;{IF NEWTOOL=1}M92 E417.5 ; steps per mm extruder 0 (right),,;prime new extruder,{IF NEWTOOL=0}T0,{IF NEWTOOL=1}T1,G1 E15 F200,G1 E5 F50,G1 E-1.5 F3000,,;move out of dock,T0,G1 X110 Y240 F3000,G1 X110 Y200 F3000,,;BigBox Oozeless Tool Change Script End</toolChangeGcode>
+    <endingGcode>;BigBox Printer End Script Begin,;relies on M83 (use relative extrusion distances),,G91 ; relative positioning,G1 Z10 F360 ; move Z axis by 10mm,G90 ; absolute positioning,,;move to dock,T0 ; select extruder 0,G1 X100 Y200 F3000 ; move to position in front of dock,G1 X100 Y240 F3000 ; move into dock,,;purge extruder 0,T0 ; select extruder 0,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,;purge extruder 1,T1 ; select extruder 1,G1 E25 F400 ; extrude 25mm,G1 E-14  F4000 ; retract 14mm very fast,,T0 ; select extruder 0,M104 S0 ; turn off extruder 0,T1 ; select extruder 1,M104 S0 ; turn off extruder 1,M140 S0 ; turn off bed,M84 ; disable steppers,M106 S0 ; disable cooling fans,T0 ; select extruder 0,,M117 Print complete,,;BigBox Printer End Script End</endingGcode>
+    <strokeXoverride>300</strokeXoverride>
     <strokeYoverride>200</strokeYoverride>
     <strokeZoverride>300</strokeZoverride>
   </autoConfigureExtruders>
